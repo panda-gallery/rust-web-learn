@@ -1,0 +1,59 @@
+2025-03-21T16:38:17.114627200+08:00 - This is an error!
+2025-03-21T16:38:17.114875100+08:00 - This is info!
+2025-03-21T16:38:17.115059100+08:00 - This is a warning!
+2025-03-21T16:38:17.118959600+08:00 - Server::run; addr=127.0.0.1:3030
+2025-03-21T16:38:17.119153100+08:00 - listening on http://127.0.0.1:3030
+2025-03-21T16:39:53.296938700+08:00 - parsed 7 headers
+2025-03-21T16:39:53.297194300+08:00 - incoming body is content-length (4 bytes)
+2025-03-21T16:39:53.297536700+08:00 - incoming body completed
+2025-03-21T16:39:53.297854300+08:00 - route was called without a query string, defaulting to empty
+2025-03-21T16:39:53.298338+08:00 - flushed 179 bytes
+2025-03-21T16:45:33.383769600+08:00 - This is an error!
+2025-03-21T16:45:33.384098700+08:00 - This is info!
+2025-03-21T16:45:33.384667700+08:00 - This is a warning!
+2025-03-21T16:45:33.388223900+08:00 - Server::run; addr=127.0.0.1:3030
+2025-03-21T16:45:33.388421400+08:00 - listening on http://127.0.0.1:3030
+2025-03-21T16:45:47.723080200+08:00 - parsed 7 headers
+2025-03-21T16:45:47.723476+08:00 - incoming body is content-length (4 bytes)
+2025-03-21T16:45:47.723762100+08:00 - incoming body completed
+2025-03-21T16:45:47.723992800+08:00 - route was called without a query string, defaulting to empty
+2025-03-21T16:45:47.725044300+08:00 - flushed 179 bytes
+2025-03-21T16:47:27.946129100+08:00 - parsed 7 headers
+2025-03-21T16:47:27.946393600+08:00 - incoming body is content-length (4 bytes)
+2025-03-21T16:47:27.946634900+08:00 - incoming body completed
+2025-03-21T16:47:27.946920400+08:00 - route was called without a query string, defaulting to empty
+2025-03-21T16:47:27.947868+08:00 - flushed 179 bytes
+2025-03-21T16:47:37.843810900+08:00 - This is an error!
+2025-03-21T16:47:37.844070400+08:00 - This is info!
+2025-03-21T16:47:37.844220+08:00 - This is a warning!
+2025-03-21T16:47:37.848080400+08:00 - Server::run; addr=127.0.0.1:3030
+2025-03-21T16:47:37.848301300+08:00 - listening on http://127.0.0.1:3030
+2025-03-21T16:47:44.291262700+08:00 - parsed 7 headers
+2025-03-21T16:47:44.291577300+08:00 - incoming body is content-length (4 bytes)
+2025-03-21T16:47:44.291859500+08:00 - incoming body completed
+2025-03-21T16:47:44.292136400+08:00 - route was called without a query string, defaulting to empty
+2025-03-21T16:47:44.297700800+08:00 - flushed 179 bytes
+{"time":"2025-03-21T16:50:51.250354200+08:00","level":"ERROR","message":"This is an error!","module_path":"hello_world","file":"src\\main.rs","line":14,"target":"hello_world","thread":"main","thread_id":11852,"mdc":{}}
+{"time":"2025-03-21T16:50:51.250675900+08:00","level":"INFO","message":"This is info!","module_path":"hello_world","file":"src\\main.rs","line":15,"target":"hello_world","thread":"main","thread_id":11852,"mdc":{}}
+{"time":"2025-03-21T16:50:51.250880600+08:00","level":"WARN","message":"This is a warning!","module_path":"hello_world","file":"src\\main.rs","line":16,"target":"hello_world","thread":"main","thread_id":11852,"mdc":{}}
+{"time":"2025-03-21T16:50:51.254345600+08:00","level":"INFO","message":"Server::run; addr=127.0.0.1:3030","module_path":"warp::server","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\warp-0.3.7\\src\\server.rs","line":137,"target":"warp::server","thread":"main","thread_id":11852,"mdc":{}}
+{"time":"2025-03-21T16:50:51.254565300+08:00","level":"INFO","message":"listening on http://127.0.0.1:3030","module_path":"warp::server","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\warp-0.3.7\\src\\server.rs","line":138,"target":"warp::server","thread":"main","thread_id":11852,"mdc":{}}
+{"time":"2025-03-21T16:51:11.348383600+08:00","level":"DEBUG","message":"parsed 7 headers","module_path":"hyper::proto::h1::io","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\hyper-0.14.32\\src\\proto\\h1\\io.rs","line":211,"target":"hyper::proto::h1::io","thread":"tokio-runtime-worker","thread_id":23448,"mdc":{}}
+{"time":"2025-03-21T16:51:11.348622500+08:00","level":"DEBUG","message":"incoming body is content-length (4 bytes)","module_path":"hyper::proto::h1::conn","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\hyper-0.14.32\\src\\proto\\h1\\conn.rs","line":224,"target":"hyper::proto::h1::conn","thread":"tokio-runtime-worker","thread_id":23448,"mdc":{}}
+{"time":"2025-03-21T16:51:11.349019900+08:00","level":"DEBUG","message":"incoming body completed","module_path":"hyper::proto::h1::conn","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\hyper-0.14.32\\src\\proto\\h1\\conn.rs","line":300,"target":"hyper::proto::h1::conn","thread":"tokio-runtime-worker","thread_id":23448,"mdc":{}}
+{"time":"2025-03-21T16:51:11.349328100+08:00","level":"DEBUG","message":"route was called without a query string, defaulting to empty","module_path":"warp::filters::query","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\warp-0.3.7\\src\\filters\\query.rs","line":68,"target":"warp::filters::query","thread":"tokio-runtime-worker","thread_id":23448,"mdc":{}}
+{"time":"2025-03-21T16:51:11.354125300+08:00","level":"DEBUG","message":"flushed 179 bytes","module_path":"hyper::proto::h1::io","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\hyper-0.14.32\\src\\proto\\h1\\io.rs","line":330,"target":"hyper::proto::h1::io","thread":"tokio-runtime-worker","thread_id":23448,"mdc":{}}
+{"time":"2025-03-21T16:53:31.097988900+08:00","level":"ERROR","message":"This is an error!","module_path":"hello_world","file":"src\\main.rs","line":14,"target":"hello_world","thread":"main","thread_id":28304,"mdc":{}}
+{"time":"2025-03-21T16:53:31.098293500+08:00","level":"INFO","message":"This is info!","module_path":"hello_world","file":"src\\main.rs","line":15,"target":"hello_world","thread":"main","thread_id":28304,"mdc":{}}
+{"time":"2025-03-21T16:53:31.098467700+08:00","level":"WARN","message":"This is a warning!","module_path":"hello_world","file":"src\\main.rs","line":16,"target":"hello_world","thread":"main","thread_id":28304,"mdc":{}}
+{"time":"2025-03-21T16:53:31.101975400+08:00","level":"INFO","message":"Server::run; addr=127.0.0.1:3030","module_path":"warp::server","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\warp-0.3.7\\src\\server.rs","line":137,"target":"warp::server","thread":"main","thread_id":28304,"mdc":{}}
+{"time":"2025-03-21T16:53:31.102169+08:00","level":"INFO","message":"listening on http://127.0.0.1:3030","module_path":"warp::server","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\warp-0.3.7\\src\\server.rs","line":138,"target":"warp::server","thread":"main","thread_id":28304,"mdc":{}}
+{"time":"2025-03-21T16:53:45.642845+08:00","level":"INFO","message":"GET /questions 200 OK 255µs from 127.0.0.1:64152 with {\"user-agent\": \"Apifox/1.0.0 (https://apifox.com)\", \"accept\": \"*/*\", \"host\": \"127.0.0.1:3030\", \"accept-encoding\": \"gzip, deflate, br\", \"connection\": \"keep-alive\", \"content-type\": \"application/x-www-form-urlencoded\", \"content-length\": \"4\"}","module_path":"hello_world","file":"src\\main.rs","line":29,"target":"hello_world","thread":"tokio-runtime-worker","thread_id":8208,"mdc":{}}
+{"time":"2025-03-21T17:02:29.019927700+08:00","level":"INFO","message":"Server::run; addr=127.0.0.1:3030","module_path":"warp::server","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\warp-0.3.7\\src\\server.rs","line":137,"target":"warp::server","thread":"main","thread_id":10212,"mdc":{}}
+{"time":"2025-03-21T17:02:29.020233300+08:00","level":"INFO","message":"listening on http://127.0.0.1:3030","module_path":"warp::server","file":"C:\\Users\\pguil\\.cargo\\registry\\src\\rsproxy.cn-bba5f22c699b99ea\\warp-0.3.7\\src\\server.rs","line":138,"target":"warp::server","thread":"main","thread_id":10212,"mdc":{}}
+{"time":"2025-03-21T17:02:36.012002400+08:00","level":"INFO","message":"a2d4171d-7219-4c92-82e7-01517a60ccaf Start querying question","module_path":"hello_world::routes::question","file":"src\\routes\\question.rs","line":15,"target":"hello_world::routes::question","thread":"tokio-runtime-worker","thread_id":28368,"mdc":{}}
+{"time":"2025-03-21T17:02:36.012298900+08:00","level":"INFO","message":"a2d4171d-7219-4c92-82e7-01517a60ccaf No pagination used","module_path":"hello_world::routes::question","file":"src\\routes\\question.rs","line":23,"target":"hello_world::routes::question","thread":"tokio-runtime-worker","thread_id":28368,"mdc":{}}
+{"time":"2025-03-21T17:02:36.012601600+08:00","level":"INFO","message":"GET /questions 200 OK 1.0697ms from 127.0.0.1:50993 with {\"user-agent\": \"Apifox/1.0.0 (https://apifox.com)\", \"accept\": \"*/*\", \"host\": \"127.0.0.1:3030\", \"accept-encoding\": \"gzip, deflate, br\", \"connection\": \"keep-alive\", \"content-type\": \"application/x-www-form-urlencoded\", \"content-length\": \"4\"}","module_path":"hello_world","file":"src\\main.rs","line":26,"target":"hello_world","thread":"tokio-runtime-worker","thread_id":28368,"mdc":{}}
+{"time":"2025-03-21T17:07:04.968388500+08:00","level":"INFO","message":"af874f8e-fc8b-45da-9f0c-e356bd7657bc Start querying question","module_path":"hello_world::routes::question","file":"src\\routes\\question.rs","line":15,"target":"hello_world::routes::question","thread":"tokio-runtime-worker","thread_id":18440,"mdc":{}}
+{"time":"2025-03-21T17:07:04.968644300+08:00","level":"INFO","message":"af874f8e-fc8b-45da-9f0c-e356bd7657bc No pagination used","module_path":"hello_world::routes::question","file":"src\\routes\\question.rs","line":23,"target":"hello_world::routes::question","thread":"tokio-runtime-worker","thread_id":18440,"mdc":{}}
+{"time":"2025-03-21T17:07:04.968944700+08:00","level":"INFO","message":"GET /questions 200 OK 738.3µs from 127.0.0.1:50993 with {\"user-agent\": \"Apifox/1.0.0 (https://apifox.com)\", \"accept\": \"*/*\", \"host\": \"127.0.0.1:3030\", \"accept-encoding\": \"gzip, deflate, br\", \"connection\": \"keep-alive\", \"content-type\": \"application/x-www-form-urlencoded\", \"content-length\": \"4\"}","module_path":"hello_world","file":"src\\main.rs","line":26,"target":"hello_world","thread":"tokio-runtime-worker","thread_id":18440,"mdc":{}}
