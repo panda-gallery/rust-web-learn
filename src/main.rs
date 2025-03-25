@@ -1,26 +1,25 @@
 #![warn(clippy::all)]
 
 use handle_errors::return_error;
+use std::env;
 use tracing_subscriber::fmt::format::FmtSpan;
 use warp::{http::Method, Filter};
-use std::env;
 
+mod config;
 mod profanity;
 mod routes;
 mod store;
 mod types;
-mod config;
-
 
 #[tokio::main]
-async fn main() -> Result<(), handle_errors::Error>{
+async fn main() -> Result<(), handle_errors::Error> {
     let config = config::Config::new().expect("Config can't be set");
 
     let log_filter = format!(
         "handle_errors={}, rust_web_dev={}, warp={}",
         config.log_level, config.log_level, config.log_level
     );
-    
+
     // let log_filter = std::env::var("RUST_LOG")
     //     .unwrap_or_else(|_| "practical_rust_book=info,warp=error".to_owned());
 
