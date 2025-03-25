@@ -17,10 +17,27 @@ pub struct Store {
 }
 
 impl Store {
-    pub async fn new(db_url: &str) -> Self {
+    pub async fn new(
+        username: String,
+        password: String,
+        host:String,
+        port: u16,
+        database: String,
+    ) -> Self {
         let db_pool = match PgPoolOptions::new()
             .max_connections(5)
-            .connect(db_url)
+            .connect_with(
+                sqlx::postgres::PgConnectOptions::new()
+                    .username(&username)
+                    .password(&password)
+                    .host(&host)
+                    .port(port)
+                    .database(&database)
+                    .options([
+                        ("lc_messages", "C"),
+                        ("client_encoding", "utf8")
+                    ])
+            )
             .await
         {
             Ok(pool) => pool,
