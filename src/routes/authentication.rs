@@ -1,4 +1,4 @@
-use std::future;
+use std::{env, future};
 
 use argon2::{self, Config};
 use chrono::prelude::*;
@@ -64,6 +64,7 @@ fn verify_password(hash: &str, password: &[u8]) -> Result<bool, argon2::Error> {
 }
 
 fn issue_token(account_id: AccountId) -> String {
+    let key = env::var("TOKEN_KEY").unwrap();
     let now = Utc::now();
     let exp = now + chrono::Duration::days(1);
 
@@ -77,14 +78,15 @@ fn issue_token(account_id: AccountId) -> String {
     encode(
         &Header::default(),
         &claims,
-        &EncodingKey::from_secret("RANDOM WORDS WINTER MACINTOSH PC AAAAA".as_bytes()),
+        &EncodingKey::from_secret(key.as_bytes()),
     ).expect("Failed to create token")
 }
 
 pub fn verify_token(token: String) -> Result<Session, handle_errors::Error> {
+    let key = env::var("TOKEN_KEY").unwrap();
     let token_data = decode::<Claims>(
         &token,
-        &DecodingKey::from_secret("RANDOM WORDS WINTER MACINTOSH PC AAAAA".as_bytes()),
+        &DecodingKey::from_secret(key.as_bytes()),
         &Validation::new(Algorithm::HS256),
     ).map_err(|_| handle_errors::Error::CannotDecryptToken)?;
 
