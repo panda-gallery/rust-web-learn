@@ -21,12 +21,13 @@ async fn main() -> Result<(), handle_errors::Error> {
     );
 
     let store = store::Store::new(
-        config.db_user, 
+        config.db_user,
         config.db_password,
         config.db_host,
         config.db_port,
         config.db_name,
-    ).await;
+    )
+    .await;
 
     sqlx::migrate!()
         .run(&store.clone().connection)

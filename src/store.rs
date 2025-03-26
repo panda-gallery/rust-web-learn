@@ -20,7 +20,7 @@ impl Store {
     pub async fn new(
         username: String,
         password: String,
-        host:String,
+        host: String,
         port: u16,
         database: String,
     ) -> Self {
@@ -33,10 +33,7 @@ impl Store {
                     .host(&host)
                     .port(port)
                     .database(&database)
-                    .options([
-                        ("lc_messages", "C"),
-                        ("client_encoding", "utf8")
-                    ])
+                    .options([("lc_messages", "C"), ("client_encoding", "utf8")]),
             )
             .await
         {
@@ -173,7 +170,9 @@ impl Store {
         account_id: AccountId,
     ) -> Result<Answer, Error> {
         match sqlx::query(
-            "INSERT INTO answers (content, corresponding_question, account_id) VALUES ($1, $2, $3)",
+            "INSERT INTO answers (content, corresponding_question, account_id) 
+            VALUES ($1, $2, $3)
+            RETURNING id, content, corresponding_question, account_id",
         )
         .bind(new_answer.content)
         .bind(new_answer.question_id.0)
@@ -181,7 +180,7 @@ impl Store {
         .map(|row: PgRow| Answer {
             id: AnswerId(row.get("id")),
             content: row.get("content"),
-            question_id: QuestionId(row.get("question_id")),
+            question_id: QuestionId(row.get("corresponding_question")),
         })
         .fetch_one(&self.connection)
         .await

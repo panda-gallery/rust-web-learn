@@ -1,9 +1,9 @@
-use std::env;
 use reqwest::header::{HeaderMap, HeaderValue, AUTHORIZATION};
 use reqwest_middleware::ClientBuilder;
 use reqwest_retry::{policies::ExponentialBackoff, RetryTransientMiddleware};
 use serde::{Deserialize, Serialize};
 use serde_json::json;
+use std::env;
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct APIResponse {
@@ -81,10 +81,12 @@ pub async fn check_profanity(content: String) -> Result<String, handle_errors::E
             if let Some(first_choice) = res.choices.first() {
                 Ok(first_choice.message.content.trim().to_string())
             } else {
-                Err(handle_errors::Error::ServerError(handle_errors::APILayerError {
-                    status: 500,
-                    message: "No response from AI model".to_string(),
-                }))
+                Err(handle_errors::Error::ServerError(
+                    handle_errors::APILayerError {
+                        status: 500,
+                        message: "No response from AI model".to_string(),
+                    },
+                ))
             }
         }
         Err(e) => Err(handle_errors::Error::ReqwestAPIError(e)),
@@ -94,8 +96,12 @@ pub async fn check_profanity(content: String) -> Result<String, handle_errors::E
 async fn transform_error(res: reqwest::Response) -> handle_errors::APILayerError {
     handle_errors::APILayerError {
         status: res.status().as_u16(),
-        message: res.json::<APIResponse>().await.unwrap_or_else(|_| APIResponse {
-            message: "Unknown error".to_string(),
-        }).message,
+        message: res
+            .json::<APIResponse>()
+            .await
+            .unwrap_or_else(|_| APIResponse {
+                message: "Unknown error".to_string(),
+            })
+            .message,
     }
 }

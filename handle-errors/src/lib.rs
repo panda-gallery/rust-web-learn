@@ -67,7 +67,6 @@ const DUPLICATE_KEY: u32 = 23505;
 pub async fn return_error(r: Rejection) -> Result<impl Reply, Rejection> {
     if let Some(crate::Error::DatabaseQueryError(e)) = r.find() {
         event!(Level::ERROR, "Database query error");
-
         match e {
             sqlx::Error::Database(err) => {
                 if err.code().unwrap().parse::<u32>().unwrap() ==
