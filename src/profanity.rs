@@ -41,12 +41,13 @@ pub async fn check_profanity(content: String) -> Result<String, handle_errors::E
 
     // 构建请求体 - 使用AI模型进行敏感词检测
     let request_body = json!({
-        "model": "glm-4-air",
+        "model": "glm-4-flash",
         "messages": [
             {
                 "role": "system",
-                "content": "你是一个专业的敏感词检测系统。请严格检查用户输入的内容，\
-                          将所有敏感词替换为*号。只返回处理后的文本，不要添加任何解释。",
+                "content": "你是一个专业的敏感词检测系统。请检查用户输入的内容，在一定程度上允许指代词的使用\
+                            但杜绝一切与国家分裂、民族矛盾的相关的内容。\
+                            将所有敏感词替换为*号。只返回处理后的文本，不要添加任何解释。",
             },
             {
                 "role": "user",
