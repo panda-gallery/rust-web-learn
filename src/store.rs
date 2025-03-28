@@ -32,8 +32,8 @@ impl Store {
                     .password(&password)
                     .host(&host)
                     .port(port)
-                    .database(&database)
-                    .options([("lc_messages", "C"), ("client_encoding", "utf8")]),
+                    .database(&database),
+                    // .options([("lc_messages", "C"), ("client_encoding", "utf8")]),
             )
             .await
         {
