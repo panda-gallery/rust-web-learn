@@ -16,7 +16,7 @@ pub struct Config {
     #[clap(long, default_value = "postgres")]
     pub db_user: String,
     /// Database user
-    #[clap(long)]
+    #[clap(long, default_value = "123456")]
     pub db_password: String,
     /// URL for the postgres database
     #[clap(long, default_value = "localhost")]
@@ -49,7 +49,9 @@ impl Config {
             .map_err(|e| handle_errors::Error::ParseError(e))?;
 
         let db_user = env::var("POSTGRES_USER").unwrap_or(config.db_user.to_owned());
-        let db_password = env::var("POSTGRES_PASSWORD").unwrap();
+        // 如果环境变量有POSTGRES_PASSWORD，则使用环境变量的，所以无论是否在命令行输入都无用
+        // let db_password = env::var("POSTGRES_PASSWORD").unwrap();
+        let db_password = env::var("POSTGRES_PASSWORD").unwrap_or(config.db_user.to_owned());
         let db_host = env::var("POSTGRES_HOST").unwrap_or(config.db_host.to_owned());
         let db_port = env::var("POSTGRES_PORT").unwrap_or(config.db_port.to_string());
         let db_name = env::var("POSTGRES_DB").unwrap_or(config.db_name.to_owned());
